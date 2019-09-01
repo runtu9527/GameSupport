@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -70,6 +72,7 @@ namespace CloudTopSupport.Entity
 
     public enum HeroEnum
     {
+        [HeroAttr(RaceEnum.renzhe,ProfessionEnum.cike,4)]
         akali,
         ali,
         aobama,
@@ -125,5 +128,18 @@ namespace CloudTopSupport.Entity
         yasuo,
         zhizhu,
         zhumei,
+    }
+
+    public class HeroAttr: Attribute
+    {
+        public int Fee { get; set; }
+        public RaceEnum Race { get; set; }
+        public ProfessionEnum Profession { get; set; }
+        public HeroAttr(RaceEnum race, ProfessionEnum profession,int fee)
+        {
+            this.Race = race;
+            this.Profession = profession;
+            this.Fee = fee;
+        }
     }
 }

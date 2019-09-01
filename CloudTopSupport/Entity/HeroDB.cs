@@ -45,17 +45,17 @@ namespace CloudTopSupport.Entity
                                 [RaceId] INTEGER NOT NULL, 
                                 [ProfessionId] INTEGER NOT NULL, 
                                 [Fee] INTEGER NOT NULL, 
-                                [Icon] IMAGE);");
+                                [Icon] VARCHAR(50));");
 
                 db.CreateTable(@"CREATE TABLE [HeroRace] (
                               [Id] INTEGER NOT NULL PRIMARY KEY, 
                               [Name] VARCHAR(50) NOT NULL, 
-                              [Icon] IMAGE);");
+                              [Icon] VARCHAR(50));");
 
                 db.CreateTable(@"CREATE TABLE [HeroProfession] (
                               [Id] INTEGER NOT NULL PRIMARY KEY, 
                               [Name] VARCHAR(50) NOT NULL, 
-                              [Icon] IMAGE);");
+                              [Icon] VARCHAR(50));");
 
                 InitTable();
             }
@@ -71,6 +71,13 @@ namespace CloudTopSupport.Entity
                 {
                     Hero hero = new Hero();
                     hero.Id = item;
+                    HeroAttr attr = ((HeroEnum)item).GetAttribute<HeroAttr>();
+                    if (attr != null)
+                    {
+                        hero.RaceId = (int)attr.Race;
+                        hero.ProfessionId = (int)attr.Profession;
+                        hero.Fee = attr.Fee;
+                    }
                     hero.Name = Enum.GetName(typeof(HeroEnum), item);
                     heros.Add(hero);
                 }

@@ -29,6 +29,11 @@ namespace CloudTopSupport
 
         private void EquipmentButton_Click(object sender, RoutedEventArgs e)
         {
+            using(RetailContext ctx=new RetailContext())
+            {
+                var renzhe = ctx.Heros.ToList().FindAll(p => p.RaceId == (int)RaceEnum.renzhe);
+            }
+
             EquipmentWin win = new EquipmentWin();
             win.Owner = this;
             win.Show();
