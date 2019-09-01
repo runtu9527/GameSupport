@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.705
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CloudTopSupport", "CloudTopSupport\CloudTopSupport.csproj", "{AC3CD352-68F5-4F9E-AB3D-507FDFA4345A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Support.Common", "Support.Common\Support.Common.csproj", "{CD7979B1-B9A3-4EF3-B654-06041EF8EE0B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{AC3CD352-68F5-4F9E-AB3D-507FDFA4345A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AC3CD352-68F5-4F9E-AB3D-507FDFA4345A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AC3CD352-68F5-4F9E-AB3D-507FDFA4345A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AC3CD352-68F5-4F9E-AB3D-507FDFA4345A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CD7979B1-B9A3-4EF3-B654-06041EF8EE0B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CD7979B1-B9A3-4EF3-B654-06041EF8EE0B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CD7979B1-B9A3-4EF3-B654-06041EF8EE0B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CD7979B1-B9A3-4EF3-B654-06041EF8EE0B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {19363E6F-E915-4858-9D36-C0377E5A7F56}
+	EndGlobalSection
+EndGlobal
