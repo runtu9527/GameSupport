@@ -12,7 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-
+using CloudTopSupport.Entity;
+using CloudTopSupport.View;
 namespace CloudTopSupport
 {
     /// <summary>
@@ -23,6 +24,21 @@ namespace CloudTopSupport
         public MainWindow()
         {
             InitializeComponent();
+
+        }
+
+        private void EquipmentButton_Click(object sender, RoutedEventArgs e)
+        {
+            EquipmentWin win = new EquipmentWin();
+            win.Owner = this;
+            win.Show();
+        }
+
+        private void EquipmentSmartButton_Click(object sender, RoutedEventArgs e)
+        {
+            EquipmentSmartWin win = new EquipmentSmartWin();
+            win.Owner = this;
+            win.Show();
         }
     }
 }

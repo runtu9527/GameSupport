@@ -1,0 +1,15 @@
+﻿<Window x:Class="CloudTopSupport.View.EquipmentWin"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CloudTopSupport.View"
+        mc:Ignorable="d"
+        Title="装备合成表" Height="520" Width="860">
+    <Grid MouseMove="Grid_MouseMove">
+        <Image Source="../Image/Equipment.jpg"/>
+
+        <Line X1="{Binding MouseX}" Y1="0" X2="{Binding MouseX}" Y2="{Binding MouseY}"  Stroke="Red" StrokeThickness="4" Fill="Red"></Line>
+        <Line X1="0" Y1="{Binding MouseY}" X2="{Binding MouseX}" Y2="{Binding MouseY}"  Stroke="Red" StrokeThickness="4" Fill="Red"></Line>
+    </Grid>
+</Window>
