@@ -12,12 +12,14 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using CloudTopSupport.ViewModel;
+using GA.BaseHelper;
+
 namespace CloudTopSupport.View
 {
     /// <summary>
     /// EquipmentSmartWin.xaml 的交互逻辑
     /// </summary>
-    public partial class EquipmentSmartWin : Window
+    public partial class EquipmentSmartWin : BaseWindow
     {
         public ViewModel.EquipmentViewModel VM = new ViewModel.EquipmentViewModel();
         public EquipmentSmartWin()

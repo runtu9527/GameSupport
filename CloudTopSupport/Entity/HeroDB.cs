@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Data.Entity;
 using System.Data.Entity.ModelConfiguration.Conventions;
 using System.IO;
+using System.Linq;
 
 namespace CloudTopSupport.Entity
 {
@@ -40,12 +41,12 @@ namespace CloudTopSupport.Entity
                 db.CreateDb(dbPath);
 
                 db.CreateTable(@"CREATE TABLE [Hero] (
-                                [Id] INTEGER NOT NULL PRIMARY KEY, 
-                                [Name] VARCHAR(50) NOT NULL, 
-                                [RaceId] INTEGER NOT NULL, 
-                                [ProfessionId] INTEGER NOT NULL, 
-                                [Fee] INTEGER NOT NULL, 
-                                [Icon] VARCHAR(50));");
+                              [Id] INTEGER NOT NULL PRIMARY KEY, 
+                              [Name] VARCHAR(50) NOT NULL, 
+                              [RaceId] VARCHAR(50) NOT NULL, 
+                              [ProfessionId] VARCHAR(50) NOT NULL, 
+                              [Fee] INTEGER NOT NULL, 
+                              [Icon] VARCHAR(50));");
 
                 db.CreateTable(@"CREATE TABLE [HeroRace] (
                               [Id] INTEGER NOT NULL PRIMARY KEY, 
@@ -61,8 +62,7 @@ namespace CloudTopSupport.Entity
             }
         }
 
-      
-        public static void InitTable()
+        private static void InitTable()
         {
             using (RetailContext context = new RetailContext())
             {
@@ -71,11 +71,11 @@ namespace CloudTopSupport.Entity
                 {
                     Hero hero = new Hero();
                     hero.Id = item;
-                    HeroAttr attr = ((HeroEnum)item).GetAttribute<HeroAttr>();
+                    HeroAttribute attr = ((HeroEnum)item).GetAttribute<HeroAttribute>();
                     if (attr != null)
                     {
-                        hero.RaceId = (int)attr.Race;
-                        hero.ProfessionId = (int)attr.Profession;
+                        hero.RaceId = string.Join(",", attr.Race.Select(p => (int)p));
+                        hero.ProfessionId = string.Join(",", attr.Profession.Select(p => (int)p));
                         hero.Fee = attr.Fee;
                     }
                     hero.Name = Enum.GetName(typeof(HeroEnum), item);

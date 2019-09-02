@@ -14,6 +14,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using CloudTopSupport.Entity;
 using CloudTopSupport.View;
+using GA.BaseHelper;
 namespace CloudTopSupport
 {
     /// <summary>
@@ -31,18 +32,21 @@ namespace CloudTopSupport
         {
             using(RetailContext ctx=new RetailContext())
             {
-                var renzhe = ctx.Heros.ToList().FindAll(p => p.RaceId == (int)RaceEnum.renzhe);
+                var renzhe = ctx.Heros.ToList().FindAll(p => p.RaceId.Contains($"{(int)RaceEnum.yuedeerren}"));
+
+                var iconInfo = ((HeroEnum)renzhe.First().Id).GetAttribute<IconAttribute>();
+
             }
 
             EquipmentWin win = new EquipmentWin();
-            win.Owner = this;
+            //win.Owner = this;
             win.Show();
         }
 
         private void EquipmentSmartButton_Click(object sender, RoutedEventArgs e)
         {
             EquipmentSmartWin win = new EquipmentSmartWin();
-            win.Owner = this;
+            //win.Owner = this;
             win.Show();
         }
     }
