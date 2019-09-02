@@ -8,6 +8,9 @@ using System.Windows.Media;
 
 namespace CloudTopSupport.Entity
 {
+    /// <summary>
+    /// 英雄
+    /// </summary>
     public enum HeroEnum
     {
         [Text("阿卡丽")]
@@ -231,7 +234,9 @@ namespace CloudTopSupport.Entity
         [Hero(new[] { RaceEnum.jidi }, new[] { ProfessionEnum.qishi }, 4)]
         zhumei,
     }
-
+    /// <summary>
+    /// 种族
+    /// </summary>
     public enum RaceEnum
     {
         [Text("暗影")]
@@ -277,7 +282,9 @@ namespace CloudTopSupport.Entity
         [Icon("Race/约德尔人.png")]
         yuedeerren,
     }
-
+    /// <summary>
+    /// 职业
+    /// </summary>
     public enum ProfessionEnum
     {
         [Text("刺客")]

@@ -78,7 +78,8 @@ namespace CloudTopSupport.Entity
                         hero.ProfessionId = string.Join(",", attr.Profession.Select(p => (int)p));
                         hero.Fee = attr.Fee;
                     }
-                    hero.Name = Enum.GetName(typeof(HeroEnum), item);
+                    hero.Name = ((HeroEnum)item).GetText();
+                    hero.Icon = ((HeroEnum)item).GetAttribute<IconAttribute>().IconPath;
                     heros.Add(hero);
                 }
                 context.Heros.AddRange(heros);
@@ -88,7 +89,8 @@ namespace CloudTopSupport.Entity
                 {
                     HeroRace hero = new HeroRace();
                     hero.Id = item;
-                    hero.Name = Enum.GetName(typeof(RaceEnum), item);
+                    hero.Name = ((RaceEnum)item).GetText();
+                    hero.Icon = ((RaceEnum)item).GetAttribute<IconAttribute>().IconPath;
                     heroRaces.Add(hero);
                 }
                 context.HeroRace.AddRange(heroRaces);
@@ -98,7 +100,8 @@ namespace CloudTopSupport.Entity
                 {
                     HeroProfession hero = new HeroProfession();
                     hero.Id = item;
-                    hero.Name = Enum.GetName(typeof(ProfessionEnum), item);
+                    hero.Name = ((ProfessionEnum)item).GetText();
+                    hero.Icon = ((ProfessionEnum)item).GetAttribute<IconAttribute>().IconPath;
                     heroProfessions.Add(hero);
                 }
                 context.HeroProfession.AddRange(heroProfessions);

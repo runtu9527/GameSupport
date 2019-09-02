@@ -49,5 +49,11 @@ namespace CloudTopSupport
             //win.Owner = this;
             win.Show();
         }
+
+        private void HeroInfoBtn_Click(object sender, RoutedEventArgs e)
+        {
+            HeroInfoWin win = new HeroInfoWin();
+            win.Show();
+        }
     }
 }

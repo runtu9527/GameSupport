@@ -77,11 +77,15 @@
     <Compile Include="Entity\HeroDB.cs" />
     <Compile Include="Entity\HeroEnum.cs" />
     <Compile Include="ViewModel\EquipmentViewModel.cs" />
+    <Compile Include="ViewModel\HeroInfoViewModel.cs" />
     <Compile Include="View\EquipmentSmartWin.xaml.cs">
       <DependentUpon>EquipmentSmartWin.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\EquipmentWin.xaml.cs">
       <DependentUpon>EquipmentWin.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\HeroInfoWin.xaml.cs">
+      <DependentUpon>HeroInfoWin.xaml</DependentUpon>
     </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -100,6 +104,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\EquipmentWin.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\HeroInfoWin.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -28,6 +28,7 @@ namespace CloudTopSupport.Entity
         /// </summary>
         public string ProfessionId { get; set; }
         public int Fee { get; set; }
+        public string Icon { get; set; }
     }
 
     [Table("HeroRace")]
@@ -36,6 +37,8 @@ namespace CloudTopSupport.Entity
         [Key]
         public int Id { get; set; }
         public string Name { get; set; }
+        public string Icon { get; set; }
+
     }
 
     [Table("HeroProfession")]
@@ -44,7 +47,8 @@ namespace CloudTopSupport.Entity
         [Key]
         public int Id { get; set; }
         public string Name { get; set; }
+        public string Icon { get; set; }
 
     }
-  
+
 }
