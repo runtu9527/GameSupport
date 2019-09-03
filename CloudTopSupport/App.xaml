@@ -4,6 +4,12 @@
              xmlns:local="clr-namespace:CloudTopSupport"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-         
+        <Style TargetType="ScrollViewer">
+            <Setter Property="Background" Value="Black"/>
+        </Style>
+
+        <Style TargetType="ScrollBar">
+            <Setter Property="Background" Value="Black"/>
+        </Style>
     </Application.Resources>
 </Application>

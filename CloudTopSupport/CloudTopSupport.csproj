@@ -75,12 +75,17 @@
     </ApplicationDefinition>
     <Compile Include="Entity\Hero.cs" />
     <Compile Include="Entity\HeroDB.cs" />
+    <Compile Include="Entity\HeroEnum.cs" />
     <Compile Include="ViewModel\EquipmentViewModel.cs" />
+    <Compile Include="ViewModel\HeroInfoViewModel.cs" />
     <Compile Include="View\EquipmentSmartWin.xaml.cs">
       <DependentUpon>EquipmentSmartWin.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\EquipmentWin.xaml.cs">
       <DependentUpon>EquipmentWin.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\HeroInfoWin.xaml.cs">
+      <DependentUpon>HeroInfoWin.xaml</DependentUpon>
     </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -99,6 +104,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\EquipmentWin.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\HeroInfoWin.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -134,6 +143,10 @@
     <ProjectReference Include="..\..\GA.BaseHelper\GA.BaseHelper\GA.BaseHelper.csproj">
       <Project>{8c40836d-1136-4036-a2e7-bcf4d7d2f7a0}</Project>
       <Name>GA.BaseHelper</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\GA.WpfControl\GA.WpfControl\GA.WpfControl.csproj">
+      <Project>{c7558b6c-382c-45a2-8e35-029b4e906e59}</Project>
+      <Name>GA.WpfControl</Name>
     </ProjectReference>
     <ProjectReference Include="..\Support.Common\Support.Common.csproj">
       <Project>{cd7979b1-b9a3-4ef3-b654-06041ef8ee0b}</Project>
@@ -227,6 +240,20 @@
     <Resource Include="Image\Race\虚空.png" />
     <Resource Include="Image\Race\贵族.png" />
     <Resource Include="Image\Race\龙.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Image\Race\海克斯科技.png" />
+    <Resource Include="Image\Race\狂野.png" />
+    <Resource Include="Image\Race\约德尔人.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Control\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Image\fee.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Image\close.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\System.Data.SQLite.Core.1.0.111.0\build\net46\System.Data.SQLite.Core.targets" Condition="Exists('..\packages\System.Data.SQLite.Core.1.0.111.0\build\net46\System.Data.SQLite.Core.targets')" />

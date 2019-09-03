@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:CloudTopSupport.View"
         mc:Ignorable="d"
         Title="装备合成表" Height="520" Width="860">
-    <Grid MouseMove="Grid_MouseMove">
+    <Grid MouseMove="Grid_MouseMove" MouseLeftButtonDown="Grid_MouseLeftButtonDown" x:Name="v_grid">
         <Image Source="../Image/Equipment.jpg"/>
 
         <Line X1="{Binding MouseX}" Y1="0" X2="{Binding MouseX}" Y2="{Binding MouseY}"  Stroke="Red" StrokeThickness="4" Fill="Red"></Line>
