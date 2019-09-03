@@ -10,6 +10,30 @@ namespace CloudTopSupport.ViewModel
 {
     public class HeroInfoViewModel:BaseNotifyPropertyChanged
     {
+        public HeroInfoViewModel()
+        {
+            FeeList = new ObservableCollection<FeeModel>();
+            for (int i = 1; i <= 5; i++)
+            {
+                FeeModel fee = new FeeModel();
+                fee.Fee = i.ToString();
+                FeeList.Add(fee);
+            }
+        }
+        private ObservableCollection<FeeModel> feeList = new ObservableCollection<FeeModel>();
+        public ObservableCollection<FeeModel> FeeList
+        {
+            get
+            {
+                return feeList;
+            }
+            set
+            {
+                feeList = value;
+                NotifyOfPropertyChange(() => FeeList);
+            }
+        }
+
         private ObservableCollection<HeroRace> raceList = new ObservableCollection<HeroRace>();
         public ObservableCollection<HeroRace> RaceList
         {
@@ -51,5 +75,10 @@ namespace CloudTopSupport.ViewModel
                 NotifyOfPropertyChange(() => HeroList);
             }
         }
+    }
+
+    public class FeeModel:BaseNotifyPropertyChanged
+    {
+        public string Fee { get; set; } = "1";
     }
 }

@@ -5,27 +5,11 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CloudTopSupport.View"
         xmlns:ga="clr-namespace:GA.BaseHelper;assembly=GA.BaseHelper"
+        xmlns:gactrl="clr-namespace:GA.WpfControl;assembly=GA.WpfControl"
         mc:Ignorable="d"
-        Title="HeroInfoWin" Height="450" Width="860">
+        Title="英雄查看" Height="550" Width="880">
     <ga:BaseWindow.Resources>
-        <Style TargetType="Button" x:Key="groupBtn">
-            <Style.Setters>
-                <Setter Property="Width" Value="60"/>
-                <Setter Property="Height" Value="40"/>
-                <Setter Property="Template">
-                    <Setter.Value>
-                        <ControlTemplate TargetType="Button">
-                            <Border>
-                                <DockPanel LastChildFill="True">
-                                    <TextBlock Text="{TemplateBinding  Content}" DockPanel.Dock="Bottom" HorizontalAlignment="Center"/>
-                                    <Border Background="{TemplateBinding  Background}"/>
-                                </DockPanel>
-                            </Border>
-                        </ControlTemplate>
-                    </Setter.Value>
-                </Setter>
-            </Style.Setters>
-        </Style>
+       
     </ga:BaseWindow.Resources>
     <Grid>
         <Grid.RowDefinitions>
@@ -34,8 +18,13 @@
             <RowDefinition Height="auto"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        <WrapPanel Grid.Row="0">
-            <ItemsControl ItemsSource="{Binding RaceList}">
+        <Grid Grid.Row="0" Margin="10">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <TextBlock Text="种族: " FontSize="16" VerticalAlignment="Top" Margin="0,10,0,0"/>
+            <ItemsControl Grid.Column="1" ItemsSource="{Binding RaceList}">
                 <ItemsControl.ItemsPanel>
                     <ItemsPanelTemplate>
                         <WrapPanel Orientation="Horizontal"/>
@@ -43,17 +32,22 @@
                 </ItemsControl.ItemsPanel>
                 <ItemsControl.ItemTemplate>
                     <DataTemplate>
-                        <Button Content="{Binding Name}" Style="{StaticResource groupBtn}">
-                            <Button.Background>
-                                <ImageBrush ImageSource="{Binding Icon}" Stretch="Uniform"/>
-                            </Button.Background>
-                        </Button>
+                        <DockPanel LastChildFill="True" Margin="5">
+                            <TextBlock Text="{Binding Name}" DockPanel.Dock="Bottom" HorizontalAlignment="Center"/>
+                            <gactrl:ImgRadioButton ImgSource="{Binding Icon}" Width="50" Height="30" Background="SkyBlue" CheckedBackground="Red"
+                                                   GroupName="race" Click="RaceImgRadioButton_Checked"/>
+                        </DockPanel>
                     </DataTemplate>
                 </ItemsControl.ItemTemplate>
             </ItemsControl>
-        </WrapPanel>
-        <WrapPanel Grid.Row="1">
-            <ItemsControl ItemsSource="{Binding ProfessionList}">
+        </Grid>
+        <Grid Grid.Row="1" Margin="10">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <TextBlock Text="职业: " FontSize="16" VerticalAlignment="Top" Margin="0,10,0,0"/>
+            <ItemsControl Grid.Column="1" ItemsSource="{Binding ProfessionList}">
                 <ItemsControl.ItemsPanel>
                     <ItemsPanelTemplate>
                         <WrapPanel Orientation="Horizontal"/>
@@ -61,17 +55,22 @@
                 </ItemsControl.ItemsPanel>
                 <ItemsControl.ItemTemplate>
                     <DataTemplate>
-                        <Button Content="{Binding Name}" Style="{StaticResource groupBtn}">
-                            <Button.Background>
-                                <ImageBrush ImageSource="{Binding Icon}" Stretch="Uniform"/>
-                            </Button.Background>
-                        </Button>
+                        <DockPanel LastChildFill="True" Margin="5">
+                            <TextBlock Text="{Binding Name}" DockPanel.Dock="Bottom" HorizontalAlignment="Center"/>
+                            <gactrl:ImgRadioButton ImgSource="{Binding Icon}" Width="50" Height="30" Background="SkyBlue" CheckedBackground="Red"
+                                                   GroupName="profession" Click="ProfessionImgRadioButton_Checked"/>
+                        </DockPanel>
                     </DataTemplate>
                 </ItemsControl.ItemTemplate>
             </ItemsControl>
-        </WrapPanel>
-        <WrapPanel Grid.Row="2">
-            <ItemsControl ItemsSource="{Binding HeroList}">
+        </Grid>
+        <Grid Grid.Row="2" Margin="10">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <TextBlock Text="费用: " FontSize="16" VerticalAlignment="Top" Margin="0,10,0,0"/>
+            <ItemsControl Grid.Column="1" ItemsSource="{Binding FeeList}">
                 <ItemsControl.ItemsPanel>
                     <ItemsPanelTemplate>
                         <WrapPanel Orientation="Horizontal"/>
@@ -79,10 +78,28 @@
                 </ItemsControl.ItemsPanel>
                 <ItemsControl.ItemTemplate>
                     <DataTemplate>
-                        <Image Source="{Binding Icon}" Width="50" Height="50" Stretch="Uniform" Margin="10"/>
+                        <gactrl:ImgRadioButton ImgSource="pack://application:,,,/CloudTopSupport;component/Image/fee.png" Width="50" Height="30" Background="SkyBlue" CheckedBackground="Red"
+                                               Content="{Binding Fee}" Foreground="Black" GroupName="fee" Margin="5"
+                                               Click="FeeImgRadioButton_Checked"/>
                     </DataTemplate>
                 </ItemsControl.ItemTemplate>
             </ItemsControl>
+        </Grid>
+        <WrapPanel Grid.Row="3" Margin="10" HorizontalAlignment="Center">
+            <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled">
+                <ItemsControl ItemsSource="{Binding HeroList}">
+                    <ItemsControl.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <WrapPanel Orientation="Horizontal"/>
+                        </ItemsPanelTemplate>
+                    </ItemsControl.ItemsPanel>
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                            <Image Source="{Binding Icon}" Width="50" Height="50" Stretch="Uniform" Margin="10"/>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
+            </ScrollViewer>
         </WrapPanel>
     </Grid>
 </ga:BaseWindow>

@@ -16,7 +16,7 @@ namespace CloudTopSupport.Entity
         [Text("阿卡丽")]
         [Icon("Hero/阿卡丽.png")]
         [Hero(new[] { RaceEnum.renzhe }, new[] { ProfessionEnum.cike }, 4)]
-        akali,
+        akali=1,
         [Text("阿狸")]
         [Icon("Hero/阿狸.png")]
         [Hero(new[] { RaceEnum.kuangye }, new[] { ProfessionEnum.fashi }, 2)]
@@ -241,7 +241,7 @@ namespace CloudTopSupport.Entity
     {
         [Text("暗影")]
         [Icon("Race/暗影.png")]
-        anying,
+        anying=1,
         [Text("帝国")]
         [Icon("Race/帝国.png")]
         diguo,
@@ -289,7 +289,7 @@ namespace CloudTopSupport.Entity
     {
         [Text("刺客")]
         [Icon("Profession/刺客.png")]
-        cike,
+        cike=1,
         [Text("斗士")]
         [Icon("Profession/斗士.png")]
         doushi,
