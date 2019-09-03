@@ -21,7 +21,7 @@ namespace CloudTopSupport.View
     /// <summary>
     /// HeroInfoWin.xaml 的交互逻辑
     /// </summary>
-    public partial class HeroInfoWin : BaseWindow
+    public partial class HeroInfoWin : BaseTransparencyWindow
     {
         public HeroInfoViewModel VM = new HeroInfoViewModel();
         private HeroRace selectedRace = null;
@@ -131,12 +131,5 @@ namespace CloudTopSupport.View
             this.Close();
         }
 
-        private void BaseWindow_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
-        {
-            if (e.LeftButton == MouseButtonState.Pressed)
-            {
-                this.DragMove();
-            }
-        }
     }
 }

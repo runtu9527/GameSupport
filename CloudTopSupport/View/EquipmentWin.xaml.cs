@@ -12,12 +12,14 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using CloudTopSupport.ViewModel;
+using GA.BaseHelper;
+
 namespace CloudTopSupport.View
 {
     /// <summary>
     /// EquipmentWin.xaml 的交互逻辑
     /// </summary>
-    public partial class EquipmentWin : Window
+    public partial class EquipmentWin : BaseTransparencyWindow
     {
         public EquipmentViewModel VM = new EquipmentViewModel();
         private bool isLock = false;

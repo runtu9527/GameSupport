@@ -254,7 +254,7 @@ namespace CloudTopSupport.Entity
         [Text("海盗")]
         [Icon("Race/海盗.png")]
         haidao,
-        [Text("海克斯科技")]
+        [Text("海克斯")]
         [Icon("Race/海克斯科技.png")]
         haikesikeji,
         [Text("机器人")]

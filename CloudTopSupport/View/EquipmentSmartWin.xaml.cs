@@ -19,7 +19,7 @@ namespace CloudTopSupport.View
     /// <summary>
     /// EquipmentSmartWin.xaml 的交互逻辑
     /// </summary>
-    public partial class EquipmentSmartWin : BaseWindow
+    public partial class EquipmentSmartWin : BaseTransparencyWindow
     {
         public ViewModel.EquipmentViewModel VM = new ViewModel.EquipmentViewModel();
         private bool isLock = false;

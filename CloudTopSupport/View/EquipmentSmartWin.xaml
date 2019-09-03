@@ -1,4 +1,4 @@
-﻿<ga:BaseWindow x:Class="CloudTopSupport.View.EquipmentSmartWin"
+﻿<ga:BaseTransparencyWindow x:Class="CloudTopSupport.View.EquipmentSmartWin"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -15,4 +15,4 @@
             <Line X1="0" Y1="{Binding MouseY}" X2="{Binding MouseX}" Y2="{Binding MouseY}"  Stroke="Yellow" StrokeThickness="4" Fill="Yellow"></Line>
         </Grid>
     </Grid>
-</ga:BaseWindow>
+</ga:BaseTransparencyWindow>
