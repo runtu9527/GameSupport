@@ -22,6 +22,7 @@ namespace CloudTopSupport.View
     public partial class EquipmentSmartWin : BaseWindow
     {
         public ViewModel.EquipmentViewModel VM = new ViewModel.EquipmentViewModel();
+        private bool isLock = false;
         public EquipmentSmartWin()
         {
             InitializeComponent();
@@ -31,10 +32,19 @@ namespace CloudTopSupport.View
 
         private void Grid_MouseMove(object sender, MouseEventArgs e)
         {
-            Grid grid = sender as Grid;
-            Point pt = Mouse.GetPosition(grid);
-            VM.MouseX = (int)pt.X;
-            VM.MouseY = (int)pt.Y;
+            if (!isLock)
+            {
+                Grid grid = sender as Grid;
+                Point pt = Mouse.GetPosition(grid);
+                VM.MouseX = (int)pt.X;
+                VM.MouseY = (int)pt.Y;
+            }
+        }
+
+        private void Grid_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            isLock = !isLock;
+            Grid_MouseMove(v_grid, null);
         }
     }
 }
