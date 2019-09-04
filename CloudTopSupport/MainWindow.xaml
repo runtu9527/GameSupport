@@ -1,19 +1,28 @@
-﻿<Window x:Class="CloudTopSupport.MainWindow"
+﻿<ga:BaseTransparencyWindow x:Class="CloudTopSupport.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CloudTopSupport"
+        xmlns:ga="clr-namespace:GA.BaseHelper;assembly=GA.BaseHelper"
         mc:Ignorable="d"
         SizeToContent="Height"
-        ResizeMode="CanMinimize"
-        Title="云顶之奕辅助" Height="450" Width="800"
+        Title="云顶之奕辅助" Height="200" Width="800"
         Topmost="True">
     <Window.Resources>
         <Style TargetType="Button">
             <Style.Setters>
                 <Setter Property="Margin" Value="10"/>
-                <!--<Setter Property="Margin" Value="10"/>-->
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="Button">
+                            <Border BorderBrush="SkyBlue" BorderThickness="1" IsHitTestVisible="True" Background="Black">
+                                <TextBlock Text="{TemplateBinding Content}" Foreground="White"
+                                           HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            </Border>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
             </Style.Setters>
         </Style>
     </Window.Resources>
@@ -27,8 +36,8 @@
             </Grid.ColumnDefinitions>
             <Button Grid.Column="0" Content="装备合成(精简版)" Click="EquipmentSmartButton_Click"></Button>
             <Button Grid.Column="1" Content="装备合成(完整版)" Click="EquipmentButton_Click"></Button>
-            <Button Grid.Column="2" Content="阵容推荐"></Button>
+            <Button Grid.Column="2" Content="阵容推荐" Click="BattleArrayButton_Click"></Button>
             <Button Grid.Column="3" Content="英雄查看" Click="HeroInfoBtn_Click"></Button>
         </Grid>
     </Grid>
-</Window>
+</ga:BaseTransparencyWindow>

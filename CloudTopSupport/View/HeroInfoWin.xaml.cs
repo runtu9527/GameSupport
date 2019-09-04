@@ -21,7 +21,7 @@ namespace CloudTopSupport.View
     /// <summary>
     /// HeroInfoWin.xaml 的交互逻辑
     /// </summary>
-    public partial class HeroInfoWin : BaseWindow
+    public partial class HeroInfoWin : BaseTransparencyWindow
     {
         public HeroInfoViewModel VM = new HeroInfoViewModel();
         private HeroRace selectedRace = null;
@@ -33,12 +33,9 @@ namespace CloudTopSupport.View
             InitializeComponent();
 
             this.DataContext = VM;
-            using (RetailContext context = new RetailContext())
-            {
-                VM.RaceList = new ObservableCollection<HeroRace>(context.HeroRace);
-                VM.ProfessionList = new ObservableCollection<HeroProfession>(context.HeroProfession);
-                VM.HeroList = new ObservableCollection<Hero>(context.Heros);
-            }
+            VM.RaceList = new ObservableCollection<HeroRace>(HeroConfigHelper.Context.HeroRace);
+            VM.ProfessionList = new ObservableCollection<HeroProfession>(HeroConfigHelper.Context.HeroProfession);
+            VM.HeroList = new ObservableCollection<Hero>(HeroConfigHelper.Context.Heros);
         }
 
      
@@ -107,23 +104,20 @@ namespace CloudTopSupport.View
 
         public void RefrechHeros()
         {
-            using (RetailContext context = new RetailContext())
+            var list = HeroConfigHelper.Context.Heros.ToList();
+            if (selectedRace != null)
             {
-                var list = context.Heros.ToList();
-                if (selectedRace != null)
-                {
-                    list = list.FindAll(p => p.RaceId.Split(',').Contains(selectedRace.Id.ToString()));
-                }
-                if (selectedProfession != null)
-                {
-                    list = list.FindAll(p => p.ProfessionId.Split(',').Contains(selectedProfession.Id.ToString()));
-                }
-                if (selectedFee != null)
-                {
-                    list = list.FindAll(p => p.Fee==int.Parse(selectedFee.Fee));
-                }
-                VM.HeroList = new ObservableCollection<Hero>(list);
+                list = list.FindAll(p => p.RaceId.Split(',').Contains(selectedRace.Id.ToString()));
             }
+            if (selectedProfession != null)
+            {
+                list = list.FindAll(p => p.ProfessionId.Split(',').Contains(selectedProfession.Id.ToString()));
+            }
+            if (selectedFee != null)
+            {
+                list = list.FindAll(p => p.Fee == int.Parse(selectedFee.Fee));
+            }
+            VM.HeroList = new ObservableCollection<Hero>(list);
         }
 
         private void CloseButton_Click(object sender, RoutedEventArgs e)
@@ -131,12 +125,5 @@ namespace CloudTopSupport.View
             this.Close();
         }
 
-        private void BaseWindow_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
-        {
-            if (e.LeftButton == MouseButtonState.Pressed)
-            {
-                this.DragMove();
-            }
-        }
     }
 }

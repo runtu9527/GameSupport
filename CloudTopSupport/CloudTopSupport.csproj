@@ -37,24 +37,11 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
-    </Reference>
-    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="System" />
-    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Data" />
-    <Reference Include="System.Data.SQLite, Version=1.0.111.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=MSIL">
-      <HintPath>..\packages\System.Data.SQLite.Core.1.0.111.0\lib\net46\System.Data.SQLite.dll</HintPath>
-    </Reference>
-    <Reference Include="System.Data.SQLite.EF6, Version=1.0.111.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=MSIL">
-      <HintPath>..\packages\System.Data.SQLite.EF6.1.0.111.0\lib\net46\System.Data.SQLite.EF6.dll</HintPath>
-    </Reference>
-    <Reference Include="System.Data.SQLite.Linq, Version=1.0.111.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=MSIL">
-      <HintPath>..\packages\System.Data.SQLite.Linq.1.0.111.0\lib\net46\System.Data.SQLite.Linq.dll</HintPath>
-    </Reference>
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -74,10 +61,14 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Entity\Hero.cs" />
-    <Compile Include="Entity\HeroDB.cs" />
+    <Compile Include="Entity\HeroConfig.cs" />
     <Compile Include="Entity\HeroEnum.cs" />
+    <Compile Include="ViewModel\BattleArrayViewModel.cs" />
     <Compile Include="ViewModel\EquipmentViewModel.cs" />
     <Compile Include="ViewModel\HeroInfoViewModel.cs" />
+    <Compile Include="View\BattleArrayView.xaml.cs">
+      <DependentUpon>BattleArrayView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\EquipmentSmartWin.xaml.cs">
       <DependentUpon>EquipmentSmartWin.xaml</DependentUpon>
     </Compile>
@@ -99,6 +90,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="View\BattleArrayView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\EquipmentSmartWin.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -130,7 +125,9 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <None Include="packages.config" />
+    <None Include="packages.config">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -154,106 +151,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Image\Equipment.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Image\Equipment2.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Image\Hero\乌鸦.png" />
-    <Resource Include="Image\Hero\亚索.png" />
-    <Resource Include="Image\Hero\冰女.png" />
-    <Resource Include="Image\Hero\凤凰.png" />
-    <Resource Include="Image\Hero\凯南.png" />
-    <Resource Include="Image\Hero\剑姬.png" />
-    <Resource Include="Image\Hero\剑魔.png" />
-    <Resource Include="Image\Hero\劫.png" />
-    <Resource Include="Image\Hero\千珏.png" />
-    <Resource Include="Image\Hero\卡密尔.png" />
-    <Resource Include="Image\Hero\卡牌.png" />
-    <Resource Include="Image\Hero\卡特.png" />
-    <Resource Include="Image\Hero\大虫子.png" />
-    <Resource Include="Image\Hero\天使.png" />
-    <Resource Include="Image\Hero\奥巴马.png" />
-    <Resource Include="Image\Hero\女枪.png" />
-    <Resource Include="Image\Hero\寒冰.png" />
-    <Resource Include="Image\Hero\寡妇.png" />
-    <Resource Include="Image\Hero\小法.png" />
-    <Resource Include="Image\Hero\小炮.png" />
-    <Resource Include="Image\Hero\布隆.png" />
-    <Resource Include="Image\Hero\德莱文.png" />
-    <Resource Include="Image\Hero\慎.png" />
-    <Resource Include="Image\Hero\拉萨丁.png" />
-    <Resource Include="Image\Hero\日女.png" />
-    <Resource Include="Image\Hero\机器人.png" />
-    <Resource Include="Image\Hero\杰斯.png" />
-    <Resource Include="Image\Hero\死歌.png" />
-    <Resource Include="Image\Hero\波比.png" />
-    <Resource Include="Image\Hero\洛克.png" />
-    <Resource Include="Image\Hero\派克.png" />
-    <Resource Include="Image\Hero\火男.png" />
-    <Resource Include="Image\Hero\狗熊.png" />
-    <Resource Include="Image\Hero\狮子狗.png" />
-    <Resource Include="Image\Hero\狼人.png" />
-    <Resource Include="Image\Hero\猪妹.png" />
-    <Resource Include="Image\Hero\璐璐.png" />
-    <Resource Include="Image\Hero\男枪.png" />
-    <Resource Include="Image\Hero\盖伦.png" />
-    <Resource Include="Image\Hero\纳尔.png" />
-    <Resource Include="Image\Hero\船长.png" />
-    <Resource Include="Image\Hero\莫甘娜.png" />
-    <Resource Include="Image\Hero\蔚.png" />
-    <Resource Include="Image\Hero\薇恩.png" />
-    <Resource Include="Image\Hero\蜘蛛.png" />
-    <Resource Include="Image\Hero\螳螂.png" />
-    <Resource Include="Image\Hero\豹女.png" />
-    <Resource Include="Image\Hero\金克斯.png" />
-    <Resource Include="Image\Hero\铁男.png" />
-    <Resource Include="Image\Hero\阿卡丽.png" />
-    <Resource Include="Image\Hero\阿狸.png" />
-    <Resource Include="Image\Hero\雷克塞.png" />
-    <Resource Include="Image\Hero\韦鲁斯.png" />
-    <Resource Include="Image\Hero\龙女.png" />
-    <Resource Include="Image\Hero\龙王.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Image\Profession\元素使.png" />
-    <Resource Include="Image\Profession\刺客.png" />
-    <Resource Include="Image\Profession\剑士.png" />
-    <Resource Include="Image\Profession\护卫.png" />
-    <Resource Include="Image\Profession\换形师.png" />
-    <Resource Include="Image\Profession\斗士.png" />
-    <Resource Include="Image\Profession\枪手.png" />
-    <Resource Include="Image\Profession\法师.png" />
-    <Resource Include="Image\Profession\游侠.png" />
-    <Resource Include="Image\Profession\骑士.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Image\Race\帝国.png" />
-    <Resource Include="Image\Race\忍者.png" />
-    <Resource Include="Image\Race\恶魔.png" />
-    <Resource Include="Image\Race\暗影.png" />
-    <Resource Include="Image\Race\机器人.png" />
-    <Resource Include="Image\Race\极地.png" />
-    <Resource Include="Image\Race\浪人.png" />
-    <Resource Include="Image\Race\海盗.png" />
-    <Resource Include="Image\Race\虚空.png" />
-    <Resource Include="Image\Race\贵族.png" />
-    <Resource Include="Image\Race\龙.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Image\Race\海克斯科技.png" />
-    <Resource Include="Image\Race\狂野.png" />
-    <Resource Include="Image\Race\约德尔人.png" />
-  </ItemGroup>
-  <ItemGroup>
     <Folder Include="Control\" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Image\fee.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Image\close.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\System.Data.SQLite.Core.1.0.111.0\build\net46\System.Data.SQLite.Core.targets" Condition="Exists('..\packages\System.Data.SQLite.Core.1.0.111.0\build\net46\System.Data.SQLite.Core.targets')" />
