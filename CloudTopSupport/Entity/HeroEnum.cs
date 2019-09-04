@@ -319,6 +319,26 @@ namespace CloudTopSupport.Entity
         yuansushi,
     }
 
+    public enum EquipmentEnum
+    {
+        [Text("暴风大剑")]
+        baofengdajian,
+        [Text("反曲之弓")]
+        fanquzhigong,
+        [Text("负极斗篷")]
+        fujidoupeng,
+        [Text("金铲子")]
+        jinchanzi,
+        [Text("巨人腰带")]
+        jurenyaodai,
+        [Text("女神之泪")]
+        nvshenzhilei,
+        [Text("锁子甲")]
+        suozijia,
+        [Text("无用大棒")]
+        yuyongdabang,
+    }
+
     public class HeroAttribute : Attribute
     {
         public int Fee { get; set; }
@@ -339,9 +359,9 @@ namespace CloudTopSupport.Entity
         public ImageSource ImgSource { get; set; }
         public IconAttribute(string path)
         {
-            string url = $"pack://application:,,,/CloudTopSupport;component/Image/{path}";
+            string url = $"pack://siteoforigin:,,,/Image/{path}";
             this.IconPath = url;
-            ImgSource = ImageHelper.StringToImageSource(url);
+            //ImgSource = ImageHelper.StringToImageSource(url);
         }
     }
 }

@@ -9,7 +9,7 @@
         Title="装备合成表" Height="450" Width="430">
     <Grid>
         <Grid MouseMove="Grid_MouseMove" MouseLeftButtonDown="Grid_MouseLeftButtonDown" x:Name="v_grid">
-            <Image Source="../Image/Equipment2.jpg"/>
+            <Image Source="pack://siteoforigin:,,,/Image/Equipment2.jpg"/>
 
             <Line X1="{Binding MouseX}" Y1="0" X2="{Binding MouseX}" Y2="{Binding MouseY}"  Stroke="Yellow" StrokeThickness="4" Fill="Yellow"></Line>
             <Line X1="0" Y1="{Binding MouseY}" X2="{Binding MouseX}" Y2="{Binding MouseY}"  Stroke="Yellow" StrokeThickness="4" Fill="Yellow"></Line>

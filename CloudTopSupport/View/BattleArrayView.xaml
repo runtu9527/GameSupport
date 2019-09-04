@@ -1,0 +1,22 @@
+﻿<ga:BaseTransparencyWindow x:Class="CloudTopSupport.View.BattleArrayView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CloudTopSupport.View"
+        xmlns:ga="clr-namespace:GA.BaseHelper;assembly=GA.BaseHelper"
+                           xmlns:gaCtrl="clr-namespace:GA.WpfControl;assembly=GA.WpfControl"
+        mc:Ignorable="d"
+        Title="BattleArrayView" Height="450" Width="650">
+    <Grid>
+        <Image Source="{Binding BattleImg}" Stretch="Uniform"/>
+        <gaCtrl:ImageButton ImgSource="pack://siteoforigin:,,,/Image/next.png" 
+               Width="30" Height="30" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,10,0" 
+                            Background="Blue" MouseOverBackground="Red"
+                            Click="NextImgBtn_Click"/>
+        <gaCtrl:ImageButton ImgSource="pack://siteoforigin:,,,/Image/back.png" 
+               Width="30" Height="30" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10,0,0,0" 
+                            Background="Blue" MouseOverBackground="Red"
+                            Click="BackImgBtn_Click"/>
+    </Grid>
+</ga:BaseTransparencyWindow>

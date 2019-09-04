@@ -18,8 +18,14 @@ namespace CloudTopSupport
         {
             base.OnStartup(e);
 
-            System.Data.Entity.Database.SetInitializer<RetailContext>(null);
-            HeroDB heroDB = new HeroDB();
+            //System.Data.Entity.Database.SetInitializer<RetailContext>(null);
+            //HeroDB heroDB = new HeroDB();
+
+            MainWindow win = new MainWindow();
+            win.WindowStartupLocation = WindowStartupLocation.Manual;
+            win.Top = 0;
+            win.Left = 0;
+            win.Show();
         }
     }
 }

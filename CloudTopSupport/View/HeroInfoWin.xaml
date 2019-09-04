@@ -79,7 +79,7 @@
                     </ItemsControl.ItemsPanel>
                     <ItemsControl.ItemTemplate>
                         <DataTemplate>
-                            <gactrl:ImgRadioButton ImgSource="pack://application:,,,/CloudTopSupport;component/Image/fee.png" Width="50" Height="30" Background="SkyBlue" CheckedBackground="Red"
+                            <gactrl:ImgRadioButton ImgSource="pack://siteoforigin:,,,/Image/fee.png" Width="50" Height="30" Background="SkyBlue" CheckedBackground="Red"
                                                Content="{Binding Fee}" GroupName="fee" Margin="5"
                                                Click="FeeImgRadioButton_Checked"/>
                         </DataTemplate>
@@ -104,7 +104,7 @@
             </WrapPanel>
         </Grid>
 
-        <gactrl:ImageButton ImgSource="pack://application:,,,/CloudTopSupport;component/Image/close.png" HorizontalAlignment="Right" VerticalAlignment="Top"
+        <gactrl:ImageButton ImgSource="pack://siteoforigin:,,,/Image/close.png" HorizontalAlignment="Right" VerticalAlignment="Top"
                             Margin="0,5,5,0" Background="Red" Width="15" Height="15" PressedBackground="Red" MouseOverBackground="SkyBlue"
                             Click="CloseButton_Click"/>
     </Grid>
