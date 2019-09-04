@@ -2,8 +2,6 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Reflection;
 using System.Text;
@@ -13,10 +11,10 @@ using System.Windows.Media.Imaging;
 
 namespace CloudTopSupport.Entity
 {
-    [Table("Hero")]
+    //[Table("Hero")]
     public class Hero
     {
-        [Key]
+        //[Key]
         public int Id { get; set; }
         public string Name { get; set; }
         /// <summary>
@@ -31,20 +29,20 @@ namespace CloudTopSupport.Entity
         public string Icon { get; set; }
     }
 
-    [Table("HeroRace")]
+    //[Table("HeroRace")]
     public class HeroRace
     {
-        [Key]
+        //[Key]
         public int Id { get; set; }
         public string Name { get; set; }
         public string Icon { get; set; }
 
     }
 
-    [Table("HeroProfession")]
+    //[Table("HeroProfession")]
     public class HeroProfession
     {
-        [Key]
+        //[Key]
         public int Id { get; set; }
         public string Name { get; set; }
         public string Icon { get; set; }

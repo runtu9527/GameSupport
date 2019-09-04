@@ -20,7 +20,7 @@ namespace CloudTopSupport
 
             //System.Data.Entity.Database.SetInitializer<RetailContext>(null);
             //HeroDB heroDB = new HeroDB();
-
+            var context = HeroConfigHelper.Context;
             MainWindow win = new MainWindow();
             win.WindowStartupLocation = WindowStartupLocation.Manual;
             win.Top = 0;

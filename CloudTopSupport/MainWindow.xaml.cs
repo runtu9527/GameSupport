@@ -32,7 +32,6 @@ namespace CloudTopSupport
         private void MainWindow_Loaded(object sender, RoutedEventArgs e)
         {
             this.Loaded -= MainWindow_Loaded;
-           
         }
 
         private void EquipmentButton_Click(object sender, RoutedEventArgs e)

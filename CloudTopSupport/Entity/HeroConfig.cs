@@ -1,18 +1,16 @@
 ﻿using GA.BaseHelper;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
 namespace CloudTopSupport.Entity
 {
     public class HeroConfig
     {
-        public List<Hero> Heros { set; get; }
-        public List<HeroRace> HeroRace { set; get; }
-        public List<HeroProfession> HeroProfession { set; get; }
+        public List<Hero> Heros { set; get; } = new List<Hero>();
+        public List<HeroRace> HeroRace { set; get; } = new List<HeroRace>();
+        public List<HeroProfession> HeroProfession { set; get; } = new List<HeroProfession>();
     }
 
     public class HeroConfigHelper
@@ -20,14 +18,35 @@ namespace CloudTopSupport.Entity
         private static string configPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "config.json");
 
         public static readonly HeroConfig Context = new HeroConfig();
-        public HeroConfigHelper()
+        static HeroConfigHelper()
         {
-            InitTable();
+            if (!File.Exists(configPath))
+            {
+                Context = InitTable();
+            }
+            else
+            {
+                try
+                {
+                    using (StreamReader sr = new StreamReader(configPath))
+                    {
+                        string jsonStr = sr.ReadToEnd();
+                        Context = JsonConvert.DeserializeObject<HeroConfig>(jsonStr);
+                    }
+                }
+                catch (System.Exception ex)
+                {
+                    Context = InitTable();
+                }
+            }
         }
 
-        private static void InitTable()
+        private static HeroConfig InitTable()
         {
-            HeroConfig context = new HeroConfig();
+            var context = new HeroConfig();
+            context.HeroProfession = new List<HeroProfession>();
+            context.HeroRace = new List<HeroRace>();
+            context.Heros = new List<Hero>();
             List<Hero> heros = new List<Hero>();
             foreach (int item in Enum.GetValues(typeof(HeroEnum)))
             {
@@ -68,10 +87,13 @@ namespace CloudTopSupport.Entity
             }
             context.HeroProfession.AddRange(heroProfessions);
 
-            using(StreamWriter sw=new StreamWriter(configPath,false))
+            using (StreamWriter sw = new StreamWriter(configPath, false))
             {
-                string jsonStr=
+                string jsonStr = JsonConvert.SerializeObject(context);
+                sw.Write(jsonStr);
             }
+
+            return context;
         }
     }
 }
