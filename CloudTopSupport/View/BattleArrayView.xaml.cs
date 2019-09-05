@@ -24,13 +24,13 @@ namespace CloudTopSupport.View
         private void Init()
         {
             VM.BattleImgList = new ObservableCollection<string>();
-            string[] imgs = System.IO.Directory.GetFiles(System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Image", "BattleArray"));
+            string[] imgs = System.IO.Directory.GetFiles(System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Image", "自定义"));
             if (imgs.Length > 0)
             {
                 foreach (var item in imgs)
                 {
                     string imgName = System.IO.Path.GetFileName(item);
-                    VM.BattleImgList.Add($"pack://siteoforigin:,,,/Image/BattleArray/{imgName}");
+                    VM.BattleImgList.Add($"pack://siteoforigin:,,,/Image/自定义/{imgName}");
                 }
             }
             VM.BattleImg = VM.BattleImgList[0];
