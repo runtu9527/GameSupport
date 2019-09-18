@@ -15,6 +15,8 @@ using System.Windows.Shapes;
 using CloudTopSupport.Entity;
 using CloudTopSupport.View;
 using GA.BaseHelper;
+using System.Windows.Shell;
+ 
 namespace CloudTopSupport
 {
     /// <summary>
@@ -26,12 +28,14 @@ namespace CloudTopSupport
         {
             InitializeComponent();
 
+            this.Title = "云顶之奕辅助";
             this.Loaded += MainWindow_Loaded;
         }
 
         private void MainWindow_Loaded(object sender, RoutedEventArgs e)
         {
             this.Loaded -= MainWindow_Loaded;
+            //System.Windows.SystemParameters.SmallIconWidth
         }
 
         private void EquipmentButton_Click(object sender, RoutedEventArgs e)
