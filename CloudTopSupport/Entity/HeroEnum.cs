@@ -233,6 +233,10 @@ namespace CloudTopSupport.Entity
         [Icon("Hero/猪妹.png")]
         [Hero(new[] { RaceEnum.jidi }, new[] { ProfessionEnum.qishi }, 4)]
         zhumei,
+        [Text("潘森")]
+        [Icon("Hero/潘森.png")]
+        [Hero(new[] { RaceEnum.@long }, new[] { ProfessionEnum.huwei }, 5)]
+        pansen,
     }
     /// <summary>
     /// 种族
