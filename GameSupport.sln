@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.28307.705
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29418.71
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CloudTopSupport", "CloudTopSupport\CloudTopSupport.csproj", "{AC3CD352-68F5-4F9E-AB3D-507FDFA4345A}"
 EndProject
@@ -12,6 +12,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SQLiteOperate", "..\code example\SQLiteOperate  SQLite数据库操作\SQLiteOperate.csproj", "{8CE813EF-A100-41F8-A5F0-4EAB02721810}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GA.WpfControl", "..\GA.WpfControl\GA.WpfControl\GA.WpfControl.csproj", "{C7558B6C-382C-45A2-8E35-029B4E906E59}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LOL_Killer", "LOL_Killer\LOL_Killer.csproj", "{7FD12415-5849-48CD-895F-04110C9E363E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -61,6 +63,14 @@ Global
 		{C7558B6C-382C-45A2-8E35-029B4E906E59}.Release|Any CPU.Build.0 = Release|Any CPU
 		{C7558B6C-382C-45A2-8E35-029B4E906E59}.Release|x64.ActiveCfg = Release|Any CPU
 		{C7558B6C-382C-45A2-8E35-029B4E906E59}.Release|x64.Build.0 = Release|Any CPU
+		{7FD12415-5849-48CD-895F-04110C9E363E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7FD12415-5849-48CD-895F-04110C9E363E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7FD12415-5849-48CD-895F-04110C9E363E}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{7FD12415-5849-48CD-895F-04110C9E363E}.Debug|x64.Build.0 = Debug|Any CPU
+		{7FD12415-5849-48CD-895F-04110C9E363E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7FD12415-5849-48CD-895F-04110C9E363E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7FD12415-5849-48CD-895F-04110C9E363E}.Release|x64.ActiveCfg = Release|Any CPU
+		{7FD12415-5849-48CD-895F-04110C9E363E}.Release|x64.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
